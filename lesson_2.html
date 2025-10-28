@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson 1</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #f8eade;
+            display: grid;
+            justify-items: center;
+            
+        }
+
+        .card{
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            height: 250px;
+            width: 350px;
+            background-color: #cfb59e;
+            border-radius: 10px;
+            margin-top: 80%;
+            
+        }
+
+        #input{
+           
+            border-radius: 50px;
+            font-size: 20px;
+            border: solid #dde6ed;
+
+        }
+
+        .word{
+            color: black;
+            font-size: 50px;
+        }
+        .meaning{
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 50px;
+            color: black;
+            text-align: center;
+            color: #6c4d38;
+            
+        }
+
+        select{
+            position: absolute;
+            top: 35%;
+            left: 70%;
+            border-radius: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #cfb59e;
+            
+            
+
+
+        }
+
+        #result{
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 20px;
+
+        }
+        #correctAnswer{
+             font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        
+    </style>
+    <select id="daySelect" onchange="selectDay()">
+        <option value="unit1">Unit 1</option>
+        <option value="unit2">Unit 2</option>
+        <option value="unit3">Unit 3</option>
+        
+    </select>
+    <div class="card"> 
+        <div class="word" id="word"></div>
+        <div class="meaning" id="meaning"></div>
+        <div class="square"></div>
+        <input id="input" type ="text" placeholder="enter text here"/>
+        <div id="result"></div>
+        <div id="correctAnswer"></div>
+        
+    </div>
+
+ 
+    <script>
+        const vocabulary = {
+  unit1: [
+    { word: "癌", reading: "がん", meaning: "ung thư" },
+      { word: "隣国", reading: "りんごく", meaning: "nước láng giềng" },
+      { word: "大腸", reading: "だいちょう", meaning: "đại tràng/ ruột già " },
+      { word: "胃腸", reading: "いちょう", meaning: "dạ dày và ruột" },
+      { word: "名残", reading: "なごり", meaning: "lưu luyến" },
+      { word: "歪み", reading: "ゆがみ", meaning: "biến dạng" },
+      { word: "軸", reading: "じく", meaning: "trục,trọng tâm" },
+      { word: "掛け軸", reading: "かけじく", meaning: "tranh cuộn treo" },
+      { word: "待合室", reading: "まちあいしつ", meaning: "phòng chờ" },
+      { word: "半袖", reading: "はんそで", meaning: "áo ngắn tay" },
+      { word: "長袖", reading: "ながそで", meaning: " áo dài tay" },
+      { word: "間近", reading: "まぢか", meaning: "sắp tới(thời điểm, khoảng cách)" },
+      { word: "名残惜しい", reading: "なごりおしい", meaning: "luyến tiếc" },
+      { word: "果敢", reading: "かかん", meaning: "gan dạ" },
+      { word: "勇敢", reading: "ゆうかん", meaning: "dũng cảm" },
+      { word: "償う", reading: "つぐなう", meaning: "đền bù, bồi thường" },
+      { word: "途絶える", reading: "とだえる", meaning: " ngắt quãng" },
+      { word: "構想", reading: "こうそう", meaning: "ý tưởng" },
+      { word: "忠告", reading: "ちゅうこく", meaning: "khuyên nhủ" },
+      { word: "試行錯誤", reading: "しこうさくご", meaning: "vừa làm,vừa rút kinh nghiệm" },
+      { word: "妊娠", reading: "にんしん", meaning: "mang thai" },
+      { word: "静止", reading: "せいし", meaning: "đứng yên" },
+      { word: "辞退", reading: "じたい", meaning: "từ chối" },
+      { word: "公演", reading: "こうえん", meaning: "công diễn" },
+      { word: "設立", reading: "せつりつ", meaning: "thành lập" },
+        ],
+   unit2:[
+     { word: "発送", reading: "はっそう", meaning: "chuyển phát" },
+      { word: "惜敗", reading: "せきはい", meaning: "thua tiếc nuối" },
+      { word: "抑揚", reading: "よくよう", meaning: "ngữ điệu" },
+      { word: "登頂", reading: "とうちょう", meaning: "lên đến đỉnh núi" },
+      { word: "措置", reading: "そち", meaning: "biện pháp, giải pháp" },
+      { word: "故意", reading: "こい", meaning: "cố ý" },
+      { word: "芯", reading: "しん", meaning: "cốt lõi,ruột bút" },
+      { word: "腸", reading: "ちょう", meaning: "ruột" },
+      { word: "唇", reading: "くちびる", meaning: "môi" },
+      { word: "屈辱", reading: "くつじょく", meaning: "sỉ nhục" },
+      { word: "隙間", reading: "すきま", meaning: "khe hở" },
+      { word: "間隔", reading: "かんかく", meaning: "khoảng cách giữa hai vật" },
+      { word: "木陰", reading: "こかげ", meaning: "bóng cây" },
+      { word: "模様", reading: "もよう", meaning: "hoa văn,tình hình" },
+      { word: "模擬", reading: "もぎ", meaning: "mô phỏng, giả lập" },
+      { word: "砂漠", reading: "さばく", meaning: "sa mạc" },
+      { word: "探偵", reading: "たんてい", meaning: "trinh thám" },
+      { word: "相場", reading: "そうば", meaning: "xu thế" },
+      { word: "アウトライン", reading: "アウトライン", meaning: "dàn ý " },
+      { word: "インターチェンジ", reading: "インターチェンジ", meaning: "nút giao thông" },
+      { word: "無用", reading: "むよう", meaning: " vô ích, vô dụng" },
+      { word: "尊厳", reading: "そんげん", meaning: "nhân phẩm" },
+      { word: "忠実", reading: "ちゅうじつ", meaning: "trung thành, trung thực" },
+      { word: "明快", reading: "めいかい", meaning: "rõ ràng, minh bạch" },
+      { word: "惜しい", reading: "おしい", meaning: "đáng tiếc, tiếc nuối" },
+      { word: "厳重", reading: "げんじゅう", meaning: "nghiêm khắc, cẩn trọng" },
+   
+   ],
+   
+   unit3:[
+       { word: "懸命", reading: "けんめい", meaning: ", chăm chỉ, hết mình" },
+    { word: "漠然", reading: "ばくぜん", meaning: "mơ hồ" },
+    { word: "隔てる", reading: "へだてる", meaning: "ngăn cách" },
+    { word: "惜しむ", reading: "おしむ", meaning: "tiếc nuối" },
+    { word: "滞る", reading: "とどこおる", meaning: "đình trệ" },
+    { word: "値する", reading: "あたいする", meaning: "xứng đáng với" },
+     { word: "見開く", reading: "みひらく", meaning: "mở to mắt" },
+      { word: "故障", reading: "こしょう", meaning: "hỏng hóc" },
+      { word: "厳選", reading: "げんせん", meaning: "tuyển chọn kỹ càng" },
+      { word: "錯覚", reading: "さっかく", meaning: "nhầm tưởng" },
+      { word: "自覚", reading: "じかく", meaning: "tự ý thức" },
+      { word: "離陸", reading: "りりく", meaning: "cất cánh" },
+      { word: "陥没", reading: "かんぼつ", meaning: "sụp xuống" },
+   { word: "模索", reading: "もさく", meaning: "tìm kiếm" },
+   { word: "模倣", reading: "もほう", meaning: " bắt chước" },
+   { word: "徐行", reading: "じょこう", meaning: " giảm tốc độ" },
+   { word: "傾斜", reading: "けいしゃ", meaning: "nghiêng" },
+   { word: "塗装", reading: "とそう", meaning: "sơn" },
+   { word: "弁償", reading: "べんしょう", meaning: "bồi thường" },
+   { word: "指図", reading: "さしず", meaning: "chỉ đạo" },
+   { word: "新築", reading: "しんちく", meaning: "xây mới" },
+     { word: "進展", reading: "しんてん", meaning: "tiến triển, phát triển" },
+      { word: "振動", reading: "しんどう", meaning: "rung, dao động" },
+     { word: "侵略", reading: "しんりゃく", meaning: "xâm lược" },
+      { word: "診療", reading: "しんりょう", meaning: "khám chữa bệnh" },
+       { word: "カスタマイズ", reading: "カスタマイズ", meaning: "customize" },
+        { word: "徐々に", reading: "じょじょに", meaning: "dần dần, từ từ" },
+        { word: "敢えて", reading: "あえて", meaning: "mạnh dạn, cố tình" },
+        { word: "僅かに", reading: "わずかに", meaning: "rất ít" },
+   ],
+
+   
+   
+};
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

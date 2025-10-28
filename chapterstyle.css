@@ -1,0 +1,59 @@
+body{
+    background-color: #f8eade;
+    font-family: "Dream";
+    font-weight: lighter;
+     
+  
+  height: 100vh; 
+}
+
+h1{
+    text-align: center; 
+    color: #6c4d38;
+}
+.words{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 40px
+
+}
+
+.l1{
+    height: 120px;
+    width: 250px;
+    border-radius: 20px;
+    border: transparent;
+    background-color: #dde5ed;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+    
+    
+    color: #6c4d38; 
+    font-size: 30px; 
+    font-family: "DREAM"; 
+    text-align: center;
+    
+    
+    
+}
+
+p{
+   
+   margin-bottom: 0;
+}
+
+
+
+button{
+    border-radius: 20px;
+    width: 70%;
+    height: 30px;
+    border: transparent;
+    background-color: #c3ddf1;
+    color: #004e89;
+   
+
+}
+button:hover{
+     cursor: pointer;
+}

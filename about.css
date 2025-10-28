@@ -1,0 +1,45 @@
+body{
+     background-color: #f8eade;
+    font-family: "Dream";
+    font-weight: lighter;
+}
+
+h1{
+    color: #402d21;
+    letter-spacing: 3px;
+    text-align: center;
+
+}
+
+.content{
+   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cột */
+  gap: 15px; /* 👈 tạo khoảng cách giữa các nút */
+  width: fit-content;
+  margin: 0 auto; /* căn giữa */
+  
+  padding: 20px;
+}
+
+.chapter{
+    height: 150px;
+    width: 150px;
+    border: transparent;
+    
+    background-color: #cfb59e;
+    align-items: center;
+    bottom: 100px;
+    
+    
+}
+
+p{
+    color: #6c4d38;
+    font-size: 25px;
+    font-family: "Dream";
+}
+
+.chapter:hover{
+    background-color: #dde6ed;
+    cursor: pointer; 
+}

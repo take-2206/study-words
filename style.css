@@ -1,0 +1,38 @@
+body{
+    background-color: #f8eade;
+    font-family: "Dream";
+    font-weight: lighter;
+}
+
+h1{
+    font-size: 70px;
+    color: #402d21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    letter-spacing: 5px;
+    
+}
+
+.button{
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    border: transparent;
+    font-size: 20px;
+    color: #ddcebf;
+    background-color: #87521e;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    
+   
+    
+
+}
+.button:hover{
+    box-shadow: 5px 10px #402d21;
+    cursor: pointer; 
+
+}
