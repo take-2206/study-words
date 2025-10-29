@@ -67,3 +67,16 @@ window.onload = () => {
   document.getElementById("daySelect").value = "day1";
   selectDay();
 };
+
+window.onload = function () {
+    var nav = document.getElementById('nav-wrapper');
+    var hamburger = document.getElementById('hamburger');
+    var blackBg = document.getElementById('black-bg');
+
+    hamburger.addEventListener('click', function () {
+        nav.classList.toggle('open');
+    });
+    blackBg.addEventListener('click', function () {
+        nav.classList.remove('open');
+    });
+};

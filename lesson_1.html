@@ -3,85 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lesson.css">
     <title>lesson 2</title>
+      <style>
+        @font-face {
+            font-family: "Dream";
+            src: url("font/Dream\ Orphans.otf");
+        }
+    </style>
 </head>
 <body>
-    <style>
-        body{
-            background-color: #f8eade;
-            display: grid;
-            justify-items: center;
-            
-        }
-
-        .card{
-            display: grid;
-            align-items: center;
-            justify-items: center;
-            height: 250px;
-            width: 350px;
-            background-color: #cfb59e;
-            border-radius: 10px;
-            margin-top: 80%;
-            
-        }
-
-        #input{
-           
-            border-radius: 50px;
-            font-size: 20px;
-            border: solid #dde6ed;
-
-        }
-
-        .word{
-            color: black;
-            font-size: 50px;
-        }
-        .meaning{
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            font-size: 50px;
-            color: black;
-            text-align: center;
-            color: #6c4d38;
-            
-        }
-
-        select{
-            position: absolute;
-            top: 35%;
-            left: 70%;
-            border-radius: 50px;
-            font-size: 20px;
-            cursor: pointer;
-            color: #cfb59e;
-            
-            
-
-
-        }
-
-        #result{
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            font-size: 20px;
-
-        }
-        #correctAnswer{
-             font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        
-        
-    </style>
+    
     <select id="daySelect" onchange="selectDay()">
         <option value="unit1">Unit 1</option>
         <option value="unit2">Unit 2</option>
         <option value="unit3">Unit 3</option>
         <option value="unit4">Unit 4</option>
     </select>
+    <nav class="navbar">
+        <!-- home menu -->
+       <button class="button1" onclick="window.location.href='about.html'" >X</button>
+        <h1>LESSON 1</h1>
+        
+     <!-- hamburger menu -->
+       <div id="nav-wrapper" class="nav-wrapper">
+        <div class="hamburger" id="hamburger">
+            <span class="hamburger_line line--1"></span>
+            <span class="hamburger_line line--2"></span>
+            <span class="hamburger_line line--3"></span>
+        </div>
+        <nav class="sp-nav">
+            <ul top: 70%;>
+                <li>lesson 2</li>
+                <li>lesson 3</li>
+                <li>all words</li>
+            </ul>
+        </nav>
+        <div class="black-bg" id="black-bg"></div>
+      </div>
+    </nav>
+
+
+
+
+
     <div class="card"> 
         <div class="word" id="word"></div>
         <div class="meaning" id="meaning"></div>
@@ -109,7 +74,7 @@
     { word: "抑制", reading: "よくせい", meaning: "Hạn chế\n kiềm hãm" },
     { word: "抑圧", reading: "よくあつ", meaning: "Đàn áp\n áp chế" },
     { word: "出費", reading: "しゅっぴ", meaning: "Chi tiêu\n khoản chi" },
-    { word: "高騰", reading: "こうとう", meaning: "Tăng vọt\n leo thang (giá cả, chỉ số, v.v.)" },
+    { word: "高騰", reading: "こうとう", meaning: "Tăng vọt(giá cả,chỉ số)" },
     { word: "備蓄", reading: "びちく", meaning: "Dự trữ\ntích trữ" },
     { word: "報道", reading: "ほうどう", meaning: "Đưa tin\n phát tin" },
     { word: "暴落", reading: "ぼうらく", meaning: "Sụp đổ\nlao dốc(giá, cổ phiếu" },

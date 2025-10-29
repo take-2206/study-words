@@ -25,6 +25,7 @@ h1{
     height: 150px;
     width: 150px;
     border: transparent;
+    border-radius: 15px;
     
     background-color: #cfb59e;
     align-items: center;
