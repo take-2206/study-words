@@ -91,6 +91,11 @@ body{
             color: rgb(255, 112, 112);
         }
 
+        h1{
+            color: #6c4d38;
+            font-family: "Dream";
+        }
+
         /* hamburger nemu */
       
 #nav-wrapper{
@@ -153,7 +158,7 @@ body{
   top: 0;
   width: 40%; /* 出てくるスライドメニューの幅 */
   height: 30vh;
-  background-color: #fff;
+  background-color: #dde6ed;
   transition: all 0.5s;
   z-index: 200;
   overflow-y: auto; /* メニューが多くなったらスクロールできるように */
@@ -206,6 +211,6 @@ black-bg(ハンバーガーメニュー解除用bg)
 
 /*ハンバーガーメニューが開いたら表示*/
 .open .black-bg {
-  opacity: 0.3;
+  opacity: 0.5;
   visibility: visible;
 }
